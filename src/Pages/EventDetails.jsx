@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import Container from "../Components/Container";
 import EventD1 from "../assets/EventD1.png";
 import EventL2 from "../assets/EventL2.png";
 import EventL1 from "../assets/EventL1.png";
 
 function EventDetails() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <section>

@@ -4,6 +4,7 @@ import Container from "./Container";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { links } from "./Constant";
+import PI2 from "../assets/PI2.png";
 
 function Nav() {
   const [open, setOpen] = useState(false);
@@ -24,6 +25,8 @@ function Nav() {
     window.document.querySelector("body").style.overflow = "hidden";
     setHeading(defaultopen[0]);
     setSubHeading("");
+    setvalue("");
+    settype(false);
   };
   const menuCLose = () => {
     setOpen(false);
@@ -35,9 +38,9 @@ function Nav() {
   const [subHeading, setSubHeading] = useState("");
   return (
     <>
-      <div className="" ref={bodyRef}>
+      <div className="sticky md:static top-0 z-50 bg-white" ref={bodyRef}>
         <Container>
-          <nav className="py-7 px-1">
+          <nav className="py-6 px-2 md:px-0">
             <div className="flex justify-between items-center">
               <div className=" w-[150px] sm:w-[200px]  ">
                 <Link to="/">
@@ -129,30 +132,32 @@ function Nav() {
                       </svg>
                     </button>
                   </Link>
-                  <button className="mr-6">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                        stroke="#292D32"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M20.5901 22C20.5901 18.13 16.7402 15 12.0002 15C7.26015 15 3.41016 18.13 3.41016 22"
-                        stroke="#292D32"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </button>
+                  <Link to="/login">
+                    <button className="mr-6">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
+                          stroke="#292D32"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20.5901 22C20.5901 18.13 16.7402 15 12.0002 15C7.26015 15 3.41016 18.13 3.41016 22"
+                          stroke="#292D32"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </Link>
                   <button onClick={menuopen}>
                     <svg
                       width="17"
@@ -189,16 +194,18 @@ function Nav() {
             </div>
           </nav>
         </Container>
-        <div
-          className={`block md:hidden absolute bg-white  top-0 h-full w-full z-40 px-6 py-5 ${
-            !open
-              ? "-left-[100%] transition-all duration-500 ease-linear "
-              : "left-0 transition-all duration-500 ease-linear "
-          }`}
-        >
-          <div className="flex justify-between">
-            <div className="flex">
-              <span className="mr-3">
+      </div>
+      <div
+        className={`block md:hidden absolute bg-white z-[100]  top-0 h-full w-full  px-6 py-5 ${
+          !open
+            ? "-left-[100%] transition-all duration-500 ease-linear "
+            : "left-0 transition-all duration-500 ease-linear "
+        }`}
+      >
+        <div className="flex justify-between bg-white">
+          <div className="flex">
+            <Link to="/login" className="mr-3">
+              <span>
                 <svg
                   width="40"
                   height="40"
@@ -217,7 +224,9 @@ function Nav() {
                   />
                 </svg>
               </span>
-              <span className="mr-3">
+            </Link>
+            <Link to="/my-account/favorite" className="mr-3">
+              <span>
                 <svg
                   width="40"
                   height="40"
@@ -232,6 +241,8 @@ function Nav() {
                   />
                 </svg>
               </span>
+            </Link>
+            <Link to="/cart">
               <span className="">
                 <svg
                   width="40"
@@ -255,109 +266,116 @@ function Nav() {
                   />
                 </svg>
               </span>
-            </div>
-            <button onClick={menuCLose}>
+            </Link>
+          </div>
+          <button onClick={menuCLose}>
+            <svg
+              width="21"
+              height="20"
+              viewBox="0 0 21 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 19L19.9344 1"
+                stroke="#111416"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M19.9344 19L1 1"
+                stroke="#111416"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div className="mt-6 mb-4 bg-white">
+          <div className="relative border border-[#989DA5] bg-white">
+            <input
+              type="text"
+              className={`w-full outline-none placeholder:text-[#989DA5] placeholder:text-[13px] ${
+                type ? "pl-8" : "pl-3"
+              } pr-8 py-2 `}
+              placeholder="Search product or category"
+              value={value}
+              onChange={(e) => {
+                if (e.target.value !== "") {
+                  setvalue(e.target.value);
+                  settype(true);
+                } else {
+                  settype(false);
+                  setvalue("");
+                }
+              }}
+            />
+            <span
+              className={`absolute left-2 top-[14px] ${
+                !type ? "hidden" : "block"
+              }`}
+              onClick={() => {
+                setvalue("");
+                settype(false);
+              }}
+            >
               <svg
-                width="21"
-                height="20"
-                viewBox="0 0 21 20"
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M1 19L19.9344 1"
+                  d="M1 12.4078L13 1"
                   stroke="#111416"
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
-                  d="M19.9344 19L1 1"
+                  d="M13 12.4078L1 1"
                   stroke="#111416"
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
               </svg>
-            </button>
-          </div>
-          <div className="mt-6 mb-4">
-            <div className="relative border border-[#989DA5] ">
-              {/* 
-              
-              // ! onChange={(e) => [setvalue(e.target.value), settype(true)]} = Wrong
-              // ? onChange={(e) => {setvalue(e.target.value); settype(true)}} = correct
-              
-              */}
-              <input
-                type="text"
-                className={`w-full outline-none placeholder:text-[#989DA5] placeholder:text-[13px] ${
-                  type ? "pl-7" : "pl-3"
-                } pr-3 py-2 `}
-                placeholder="Search product or category"
-                value={value}
-                onChange={(e) => [setvalue(e.target.value), settype(true)]}
-              />
-              <span
-                className={`absolute left-2 top-[14px] ${
-                  !type ? "hidden" : "block"
-                }`}
-                onClick={() => [setvalue(""), settype(false)]}
+            </span>
+            <span className="absolute right-2 top-[6px]">
+              <svg
+                width="25"
+                height="26"
+                viewBox="0 0 25 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 12.4078L13 1"
-                    stroke="#111416"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M13 12.4078L1 1"
-                    stroke="#111416"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <span className="absolute right-2 top-[6px]">
-                <svg
-                  width="25"
-                  height="26"
-                  viewBox="0 0 25 26"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11.0772 19C15.0671 19 18.3015 15.6421 18.3015 11.5C18.3015 7.35786 15.0671 4 11.0772 4C7.08742 4 3.85303 7.35786 3.85303 11.5C3.85303 15.6421 7.08742 19 11.0772 19Z"
-                    stroke="#989DA5"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M23.5987 24.5C22.0941 22.9379 17.8193 18.5 17.8193 18.5"
-                    stroke="#989DA5"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-            </div>
+                <path
+                  d="M11.0772 19C15.0671 19 18.3015 15.6421 18.3015 11.5C18.3015 7.35786 15.0671 4 11.0772 4C7.08742 4 3.85303 7.35786 3.85303 11.5C3.85303 15.6421 7.08742 19 11.0772 19Z"
+                  stroke="#989DA5"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M23.5987 24.5C22.0941 22.9379 17.8193 18.5 17.8193 18.5"
+                  stroke="#989DA5"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
           </div>
-          <div className="py-2 border-b">
-            <h2 className="font-bold text-[20px] text-[#111416]">
-              Shop by Category
-            </h2>
-          </div>
+        </div>
+        <div className="py-2 border-b bg-white">
+          <h2 className="font-bold text-[20px] text-[#111416]">
+            Shop by Category
+          </h2>
+        </div>
+        <div className="bg-white">
           <ul>
             {links.map((link) => (
               <li className=" border-b">
@@ -397,7 +415,7 @@ function Nav() {
                     <div
                       className={`${
                         heading === link.name
-                          ? " h-[60vh] overflow-auto transition-all duration-500 ease-linear"
+                          ? " h-[55vh] overflow-auto transition-all duration-500 ease-linear"
                           : " h-[0vh] overflow-auto transition-all duration-500 ease-linear"
                       }`}
                     >
@@ -476,9 +494,100 @@ function Nav() {
             ))}
           </ul>
         </div>
+        {type && <Searchpanel />}
       </div>
     </>
   );
 }
 
 export default Nav;
+
+const Searchpanel = () => {
+  return (
+    <div className="absolute bg-white  top-[135px] left-0 w-full  z-[1000]   pb-4 rounded-b-xl h-full">
+      <div
+        className="overflow-auto searchpanel"
+        style={{ maxHeight: `calc(100vh - 300px)` }}
+      >
+        {orderData.map((data) => (
+          <div
+            key={data.id}
+            className="flex items-center justify-between py-4 px-6 border-b last:border-b-0 border-[#B9B9C4] hover:bg-[#EDF0F6] focus:bg-[#EDF0F6]"
+          >
+            <figure>
+              <img
+                src={data.Image}
+                alt=""
+                className="w-[75px] h-[75px] object-cover rounded mr-3"
+              />
+            </figure>
+            <div className="flex flex-col basis-[75%]">
+              <span className="font-bold text-sm block">{data.Pname}</span>
+              <span className="font-bold text-sm text-[#72777F] block">
+                SKU: {data.SKU}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+const orderData = [
+  {
+    id: 1,
+    Image: PI2,
+    Pname: "Ridge Mapping Caliper 0-25mm Scale",
+    price: "50.00",
+    SKU: "106-20",
+    qty: 3,
+  },
+  {
+    id: 2,
+    Image: PI2,
+    Pname: "Ridge Mapping Caliper 0-25mm Scale",
+    price: "50.00",
+    SKU: "106-21",
+    qty: 1,
+  },
+  {
+    id: 3,
+    Image: PI2,
+    Pname: "Ridge Mapping Caliper 0-25mm Scale",
+    price: "90.00",
+    SKU: "106-22",
+    qty: 1,
+  },
+  {
+    id: 4,
+    Image: PI2,
+    Pname: "Ridge Mapping Caliper 0-25mm Scale",
+    price: "90.00",
+    SKU: "106-22",
+    qty: 1,
+  },
+  {
+    id: 5,
+    Image: PI2,
+    Pname: "Ridge Mapping Caliper 0-25mm Scale",
+    price: "90.00",
+    SKU: "106-22",
+    qty: 1,
+  },
+  {
+    id: 6,
+    Image: PI2,
+    Pname: "Ridge Mapping Caliper 0-25mm Scale",
+    price: "90.00",
+    SKU: "106-22",
+    qty: 1,
+  },
+  {
+    id: 7,
+    Image: PI2,
+    Pname: "Ridge Mapping Caliper 0-25mm Scale",
+    price: "90.00",
+    SKU: "106-22",
+    qty: 1,
+  },
+];

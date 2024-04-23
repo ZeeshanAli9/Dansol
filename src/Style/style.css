@@ -9,8 +9,8 @@
 
 ul.slick-dots {
   position: absolute;
-  top: 115px;
-  right: -30px;
+  top: 122px;
+  right: -29px;
   bottom: unset;
   left: unset;
   text-align: right;
@@ -44,7 +44,7 @@ ul.slick-dots {
 
 button.slick-arrow.slick-next {
   bottom: 111px !important;
-  right: -23px;
+  right: -21px;
   z-index: 4;
   top: unset;
 }
@@ -73,27 +73,20 @@ button.slick-arrow.slick-next::before {
 }
 
 .banner {
-  background: url(../assets/image2.png);
+  background: url(../assets/image2.png),
+    linear-gradient(99.88deg, #307bc9 16.44%, #3c59a5 97.01%);
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  mix-blend-mode: darken;
 }
-.banner::before {
-  content: "";
-  background: linear-gradient(99.88deg, #307bc9 16.44%, #3c59a5 97.01%);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-}
+
 .sale-section {
   background: url(../assets/salebackground.png);
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  mix-blend-mode: color;
+  mix-blend-mode: darken;
 }
 .sale-section::before {
   content: "";
@@ -105,6 +98,7 @@ button.slick-arrow.slick-next::before {
   height: 100%;
   z-index: -1;
   opacity: 0.8;
+  mix-blend-mode: screen;
 }
 .footer {
   background: url(../assets/footer_url.png);
@@ -115,13 +109,14 @@ button.slick-arrow.slick-next::before {
 }
 .footer::before {
   content: "";
-  background-color: #143b64e4;
+  background-color: #143b64;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
+  mix-blend-mode: multiply;
 }
 
 .testimonail::before {
@@ -212,4 +207,38 @@ button.slick-arrow.slick-next::before {
     width: 70px;
     height: 70px;
   }
+}
+
+.login-layout::after {
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  content: "";
+  inset: 0;
+  background: linear-gradient(99.88deg, #307bc9 16.44%, #3c59a5 97.13%);
+  width: 100%;
+  display: block;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+/* width */
+.searchpanel::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+.searchpanel::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #dbe1ea;
+}
+
+/* Handle */
+.searchpanel::-webkit-scrollbar-thumb {
+  background: #b8bdc5;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.searchpanel::-webkit-scrollbar-thumb:hover {
+  background: #b8bdc5;
 }

@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { addcart } from "../../store/CounterSlice";
 import PI2 from "../../assets/PI2.png";
 import PI3 from "../../assets/PI3.png";
+import { Link } from "react-router-dom";
 
 function ProductShop() {
   const [showpopup, setshowpopup] = useState(false);
@@ -19,19 +20,21 @@ function ProductShop() {
     <div>
       <section>
         <Container>
-          <div className="my-3 ">
+          <div className="my-4 ">
             Home / Shop / Dental / Tweezers & Forceps / General Tweezers
           </div>
-          <div className="flex flex-wrap justify-between mt-8 items-center mb-6">
+          <div className="flex flex-wrap justify-between mt-9 items-center mb-6">
             <div className="flex order-2 sm:order-1">
-              <h2 className="font-bold text-[32px]">General Tweezers</h2>
+              <h2 className="font-bold text-[32px] tracking-[2px]">
+                General Tweezers
+              </h2>
             </div>
             <div className=" flex flex-wrap items-center order-1 sm:order-2">
-              <span className="text-[15px] font-normal mr-12 hidden sm:block">
+              <span className="text-[15px] font-normal mr-7 hidden sm:block">
                 {detailP.length} Results
               </span>
               <div className="flex items-center mr-12">
-                <span className="text-[15px] mr-7">Sortby &nbsp;</span>
+                <span className="text-[15px] mr-[9px]">Sortby &nbsp;</span>
                 <div>
                   <SelectOpt
                     options={sort}
@@ -42,7 +45,7 @@ function ProductShop() {
               </div>
               <div className="flex items-center">
                 <span className="text-[15px]">Show &nbsp;</span>
-                <div>
+                <div className="mx-[11px]">
                   <SelectOpt
                     options={pages}
                     isSearchable={false}

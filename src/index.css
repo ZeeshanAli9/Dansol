@@ -4,20 +4,15 @@
 
 @layer base {
   @font-face {
-    font-family: "ProductSansRegular";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/src/fonts/ProductSansRegular.ttf) format("ttf");
+    font-family: "ProductSansRegular"; /*Can be any text*/
+    src: url("/src/fonts/ProductSansRegular.ttf") format("truetype");
   }
   @font-face {
-    font-family: "ProductSansBold";
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url(/src/fonts/ProductSansBold.ttf) format("ttf");
+    font-family: "ProductSansBold"; /*Can be any text*/
+    src: url("/src/fonts/ProductSansBold.ttf") format("truetype");
   }
   html {
-    font-family: "ProductSansRegular", sans-serif;
+    /* font-family: "ProductSansRegular"; */
+    font-family: "PT Sans", sans-serif;
   }
 }

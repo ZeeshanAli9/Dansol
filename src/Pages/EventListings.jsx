@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import Container from "../Components/Container";
 import EventL2 from "../assets/EventL2.png";
 import Button from "../Components/reuseables/Button";
 import EventL1 from "../assets/EventL1.png";
+import { Link } from "react-router-dom";
 
 function EventListings() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <section className="mb-20">
@@ -17,14 +21,16 @@ function EventListings() {
             <div className="text-[22px] font-bold my-2">Year 2024</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-6 mb-20">
               {yearfirst.map((item) => (
-                <div key={item.id}>
-                  <div className="w-full">
-                    <img className="w-full" src={item.Image} alt="" />
+                <Link to="/eventdetail">
+                  <div key={item.id}>
+                    <div className="w-full">
+                      <img className="w-full" src={item.Image} alt="" />
+                    </div>
+                    <Button classname="rounded-b-lg rounded-t-none py-4 w-full -mt-3 relative z-10">
+                      {item.name}
+                    </Button>
                   </div>
-                  <Button classname="rounded-b-lg rounded-t-none py-4 w-full -mt-3 relative z-10">
-                    {item.name}
-                  </Button>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -32,14 +38,16 @@ function EventListings() {
             <div className="text-[22px] font-bold my-2">Year 2023</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
               {yearsecond.map((item) => (
-                <div key={item.id}>
-                  <div className="w-full">
-                    <img className="w-full" src={item.Image} alt="" />
+                <Link to="/eventdetail">
+                  <div key={item.id}>
+                    <div className="w-full">
+                      <img className="w-full" src={item.Image} alt="" />
+                    </div>
+                    <Button classname="rounded-b-lg rounded-t-none py-4 w-full -mt-3 relative z-10">
+                      {item.name}
+                    </Button>
                   </div>
-                  <Button classname="rounded-b-lg rounded-t-none py-4 w-full -mt-3 relative z-10">
-                    {item.name}
-                  </Button>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -47,14 +55,16 @@ function EventListings() {
             <div className="text-[22px] font-bold my-2">Year 2022</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
               {yearthird.map((item) => (
-                <div key={item.id}>
-                  <div className="w-full">
-                    <img className="w-full" src={item.Image} alt="" />
+                <Link to="/eventdetail">
+                  <div key={item.id}>
+                    <div className="w-full">
+                      <img className="w-full" src={item.Image} alt="" />
+                    </div>
+                    <Button classname="rounded-b-lg rounded-t-none py-4 w-full -mt-3 relative z-10">
+                      {item.name}
+                    </Button>
                   </div>
-                  <Button classname="rounded-b-lg rounded-t-none py-4 w-full -mt-3 relative z-10">
-                    {item.name}
-                  </Button>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

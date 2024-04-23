@@ -36,19 +36,6 @@ export const counterSlice = createSlice({
       }
     },
 
-    //immer
-    // increment: (state, action) => {
-    //   return produce(state, (draftState) => {
-    //     const itemToUpdate = draftState.cartData.find(
-    //       (item) => item.id === action.payload.id
-    //     );
-    //     console.log(itemToUpdate); // proxy data issues
-    //     if (itemToUpdate) {
-    //       itemToUpdate.qty++;
-    //     }
-    //   });
-    // },
-
     decrement: (state, action) => {
       // * its better to not to do heavy calculations in dispatch methods
 
@@ -66,28 +53,10 @@ export const counterSlice = createSlice({
         }
       }
     },
-    // immer
-    // decrement: (state, action) => {
-    //   return produce(state, (draftState) => {
-    //     const itemToUpdate = draftState.cartData.find(
-    //       (item) => item.id === action.payload.id
-    //     );
-
-    //     if (itemToUpdate) {
-    //       if (itemToUpdate.qty <= 1) {
-    //         draftState.cartData = draftState.cartData.filter(
-    //           (item) => item.id !== action.payload.id
-    //         );
-    //       } else {
-    //         itemToUpdate.qty--;
-    //       }
-    //     }
-    //   });
-    // },
   },
 });
 
-export const { increment, decrement, addcart, removecart } =
+export const { addcart, removecart, increment, decrement } =
   counterSlice.actions;
 
 export default counterSlice.reducer;

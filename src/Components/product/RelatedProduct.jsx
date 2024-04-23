@@ -6,6 +6,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import ProductDs from "../reuseables/ProductDs";
 import PI2 from "../../assets/PI2.png";
 import PI3 from "../../assets/PI3.png";
+import { Link } from "react-router-dom";
 
 function RelatedProduct() {
   // const options = {

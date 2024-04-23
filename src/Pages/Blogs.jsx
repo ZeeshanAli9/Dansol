@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import Container from "../Components/Container";
 import blog from "../assets/blog.png";
 import Button from "../Components/reuseables/Button";
 
 function Blogs() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className="mb-10">
@@ -21,7 +24,7 @@ function Blogs() {
                   <div className="p-3 border border-b-0 border-[#C8D0D8] rounded-t-[10px] ">
                     <img src={blog.img} alt="" className="w-full" />
                   </div>
-                  <div className="bg-[#F0F4F7] p-5 rounded-md">
+                  <div className="bg-[#F0F4F7] p-5 rounded-md -mt-[5px]">
                     <div className="flex justify-between text-[14px]">
                       <p>{blog.date}</p>
                       <p>{blog.name}</p>

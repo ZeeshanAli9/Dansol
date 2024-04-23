@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Container from "../Components/Container";
 import image2 from "../assets/image2.png";
 import banner from "../assets/banner.png";
@@ -19,38 +19,47 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import QRpopup from "../Components/QRpopup";
+import bannerbottom1 from "../assets/bannerbottom1.webp";
+import bannerbottom2 from "../assets/bannerbottom2.webp";
+import bannerbottom3 from "../assets/bannerbottom3.webp";
+import bannerbottom4 from "../assets/bannerbottom4.webp";
+import { Link, useNavigate } from "react-router-dom";
 
 const Main = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [tabData, setTabData] = useState(tabs[0]);
   const [qrPopUp, setQrPopUp] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setQrPopUp(true);
-      window.document.querySelector("body").style.overflow = "hidden";
-    }, 2000);
+  const navigate = useNavigate();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
+  const handleDownloadPopup = () => {
+    setQrPopUp(true);
+    window.document.querySelector("body").style.overflow = "hidden";
+  };
 
   const handletabclick = (index) => {
     setActiveTab(index);
     setTabData(tabs[index]);
   };
+  const eventnavigae = () => {
+    navigate("/eventdetail");
+  };
   return (
     <>
       <div>
-        <div className="banner pb-20">
+        <div className="banner md:pb-24">
           <Container>
             <div className="py-16 flex justify-between flex-col lg:flex-row w-full gap-10">
-              <div className=" lg:w-1/3 pr-32 lg:py-16 xl:px-24 flex flex-col order-2 lg:order-1">
-                <h2 className="text-[93px] leading-[91px] text-white font-bold mb-4">
+              <div className=" lg:w-1/3 pr-12 md:pr-32 lg:py-16 xl:px-24 flex flex-col order-2 lg:order-1">
+                <h2 className="text-[93px] leading-[91px]  text-white font-bold mb-4">
                   Densol Events
                 </h2>
-                <p className="text-white text-[16px] leading-[25px] text-sm mb-6">
+                <p className="text-white text-[16px] leading-[25px] text-sm mb-8">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the.
                 </p>
-                <button className="px-5 py-4 bg-white rounded-md w-[175px]">
+                <button className="px-4 py-3 bg-white rounded-md w-[177px]">
                   View All
                 </button>
               </div>
@@ -67,61 +76,74 @@ const Main = () => {
           </Container>
         </div>
       </div>
-      <div className="mt-6 md:-mt-[4.5rem] flex items-center relative z-20">
+      <div className="mt-6 lg:-mt-[4.5rem] flex items-center relative z-20">
         <Container>
           <div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-              <div className="bg-[#DBE1EA] rounded-lg py-2 pl-4 pr-16 min-h-[84px] md:min-h-[150px] flex items-center">
-                <div className="w-[100px] h-[120px] flex items-center mr-2">
+              <Link to="/requestcatelog">
+                <div className="bg-[#DBE1EA] rounded-lg py-2 pl-4 pr-4 md:pr-12 lg:pr-2 xl:pr-12 min-h-[84px] md:min-h-[115px] xl:min-h-[130px] flex items-center">
+                  <div className=" flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px]">
+                    <img
+                      src={bannerbottom4}
+                      alt=""
+                      className="w-full h-full object-cover rounded-sm"
+                    />
+                  </div>
+                  <p className="text-[16px] md:text-2xl font-bold">
+                    Request Catalogue{" "}
+                  </p>
+                </div>
+              </Link>
+              <div
+                className="bg-[#3D8BDC] rounded-lg py-2 pl-4 pr-4 md:pr-12 lg:pr-2 xl:pr-12 min-h-[84px] md:min-h-[115px] xl:min-h-[130px] flex items-center cursor-pointer"
+                onClick={handleDownloadPopup}
+              >
+                <div className="flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px]">
                   <img
-                    src={banner}
+                    src={bannerbottom1}
                     alt=""
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-sm"
                   />
                 </div>
-                <p className="text-2xl font-bold">Request Catalogue </p>
-              </div>
-              <div className="bg-[#3D8BDC] rounded-lg py-2 pl-4 pr-16 min-h-[84px] md:min-h-[150px] flex items-center">
-                <div className="w-[100px] h-[120px] flex items-center mr-2">
-                  <img
-                    src={banner}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-2xl font-bold text-white">
+                <p className="text-[16px] md:text-2xl font-bold text-white">
                   Download Densol App{" "}
                 </p>
               </div>
-              <div className="bg-[#DBE1EA] rounded-lg py-2 pl-4 pr-16 min-h-[84px] md:min-h-[150px] flex items-center">
-                <div className="w-[100px] h-[120px] flex items-center mr-2">
+              <Link to="/openaccount">
+                <div className="bg-[#DBE1EA] rounded-lg py-2 pl-4 pr-4 md:pr-12 lg:pr-2 xl:pr-12 min-h-[84px] md:min-h-[115px] xl:min-h-[130px] flex items-center">
+                  <div className=" flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px]">
+                    <img
+                      src={bannerbottom2}
+                      alt=""
+                      className="w-full h-full object-cover rounded-sm"
+                    />
+                  </div>
+                  <p className="text-[16px] md:text-2xl font-bold">
+                    Register with Densol{" "}
+                  </p>
+                </div>
+              </Link>
+              <div className="bg-[#55BE92] rounded-lg py-2 pl-4 pr-4 md:pr-12 lg:pr-2 xl:pr-12 min-h-[84px] md:min-h-[115px] xl:min-h-[130px] flex items-center">
+                <div className="flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px]">
                   <img
-                    src={banner}
+                    src={bannerbottom3}
                     alt=""
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-sm"
                   />
                 </div>
-                <p className="text-2xl font-bold">Register with Densol </p>
-              </div>
-              <div className="bg-[#55BE92] rounded-lg py-2 pl-4 pr-16 min-h-[84px] md:min-h-[150px] flex items-center">
-                <div className="w-[100px] h-[120px] flex items-center mr-2">
-                  <img
-                    src={banner}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-2xl font-bold text-white">Expo Promotion</p>
+                <p className="text-[16px] md:text-2xl font-bold text-white">
+                  Expo Promotion
+                </p>
               </div>
             </div>
           </div>
         </Container>
       </div>
 
-      <div className="my-24">
+      <div className="mt-10 mb:12 md:mt-24 md:mb-32">
         <Container>
           <div>
-            <div className="flex gap-16">
+            <div className="flex gap-10">
               <div className="w-1/3 hidden md:flex h-[455px] bg-[#DEE3E9] items-center rounded-lg px-6">
                 <img
                   src={surgicalitem}
@@ -130,11 +152,11 @@ const Main = () => {
                 />
               </div>
               <div className="md:w-2/3">
-                <h2 className="font-bold text-[40px] mb-4">
+                <h2 className="font-bold text-[30px] md:text-4xl my-3 ">
                   Some Words About
                   <span className="text-[#3C59A5]"> Densol</span>
                 </h2>
-                <p className="text-[22px] tracking-[3%] leading-[43px]">
+                <p className="text-[22px]  leading-[30px] md:leading-[43px] tracking-[1px]">
                   A company that entails the experience of more than six decades
                   in manufacturing and selling Surgical instruments, Dental
                   instruments worldwide. Densol is a family business where we
@@ -145,22 +167,22 @@ const Main = () => {
                   and this is from where we are looking after the Valuable
                   customers from Australia and New Zealand.
                 </p>
-                <div className="my-16 ">
-                  <Button classname="py-4 px-7">Read More</Button>
+                <div className="mt-10">
+                  <Button classname="py-3 px-8">Read More</Button>
                 </div>
               </div>
             </div>
           </div>
         </Container>
       </div>
-      <div className="sale-section py-[5.5rem]">
+      <div className="sale-section py-[3rem] md:py-[6.5rem] my-12">
         <Container>
           <div>
             <div className="grid grid-cols-2 grid-rows-2 md:grid-cols-3 md:grid-rows-1 content-center items-center">
               <div className=" col-start-2 md:col-start-1">
                 <img src={featurep2} alt="" />
               </div>
-              <div className="col-start-1  row-start-1 row-span-2 md:col-start-2 md:row-span-1">
+              <div className="xl:px-10 col-start-1  row-start-1 row-span-2 md:col-start-2 md:row-span-1">
                 <div className="text-center ">
                   <p className="text-[32px] lg:text-[61px] leading-[36.39px] lg:leading-[60.65px] text-[#292D32] font-bold">
                     Sets & Kits
@@ -168,7 +190,7 @@ const Main = () => {
                   <p className="text-[17px] lg:text-[20px] leading-[17px] lg:leading-[24.25px] text-white my-2">
                     Ends This Weekend
                   </p>
-                  <p className="text-[20px] font-bold lg:text-[77px] leading-[24.26px] lg:leading-[80px] bg-[#292D32] text-[#7CE1EA] mx-3">
+                  <p className="text-[20px] font-bold lg:text-[76px] leading-[24.26px] lg:leading-[80px] bg-[#292D32] text-[#7CE1EA] mx-3">
                     BIG SALE
                   </p>
                   <p className="text-[20px] lg:text-[50px] leading-[24.26px] lg:leading-[60.65px] bg-white text-[#292D32]">
@@ -218,11 +240,11 @@ const Main = () => {
         </Container>
       </div>
 
-      <div className="my-20">
+      <div className="my-20 overflow-hidden">
         <Container>
           <div>
             <div>
-              <div className="flex justify-center items-center mb-16">
+              <div className="flex justify-center items-center mb-12">
                 <h2 className="text-[26px] md:text-[40px] font-[ProductSansBold] font-bold">
                   DENSOL Dental Solutions
                 </h2>
@@ -233,7 +255,7 @@ const Main = () => {
                     {tabs.map((tab, index) => (
                       <div key={index} onClick={() => handletabclick(index)}>
                         <h3
-                          className={`cursor-pointer font-bold text-[28px] py-2 ${
+                          className={`cursor-pointer font-bold text-[28px]  leading-[64px] tracking-[1.5px] ${
                             activeTab == index
                               ? "text-[#3C59A5]"
                               : "text-[#6F7985]"
@@ -273,7 +295,7 @@ const Main = () => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: "-100%" }}
                     transition={{
-                      duration: 0.9,
+                      duration: 0.6,
                       ease: "easeInOut",
                       delay: 0.2,
                     }}
@@ -300,35 +322,37 @@ const Main = () => {
                     </div>
                   )} */}
                   <div className="mt-16 flex items-center justify-start lg:justify-end ">
-                    <Button classname="py-4 px-6 border-[1.5px] text-[16px] border-white font-bold">
-                      EXPLORE ALL
-                      <span className="ml-3">
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M14.43 5.93L20.5 12L14.43 18.07"
-                            stroke="white"
-                            stroke-width="1.5"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                          <path
-                            d="M3.50008 12H20.3301"
-                            stroke="white"
-                            stroke-width="1.5"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                      </span>
-                    </Button>
+                    <Link to="/shoppage">
+                      <Button classname="py-4 px-6 border-[1.5px] text-[16px] border-white font-bold">
+                        EXPLORE ALL
+                        <span className="ml-3">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M14.43 5.93L20.5 12L14.43 18.07"
+                              stroke="white"
+                              stroke-width="1.5"
+                              stroke-miterlimit="10"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M3.50008 12H20.3301"
+                              stroke="white"
+                              stroke-width="1.5"
+                              stroke-miterlimit="10"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -336,7 +360,7 @@ const Main = () => {
           </div>
         </Container>
       </div>
-      <div className="bg-gradient-to-r from-[#307BC9] to-[#3C59A5] my-10 py-[32px]">
+      <div className="bg-gradient-to-r from-[#307BC9] to-[#3C59A5] my-10 py-4">
         <Container>
           <div className="py-10 lg:py-28 ">
             <div className="flex items-center justify-center mb-5 relative testimonail">
@@ -413,18 +437,19 @@ const Main = () => {
         <Container>
           <div>
             <div className="mb-12">
-              <h2 className="text-center text-[40px] font-bold">
+              <h2 className="text-center text-[40px] font-bold tracking-[2px] ">
                 Densol Events
               </h2>
               <p className=" text-center text-[20px]">
                 Dicover the next events and stay updarted on all our news.
               </p>
             </div>
-            <div className="">
+            <ul className="mb-16">
               {events.map((event) => (
-                <div
-                  className="last:border-none border-b border-[#B3BAC3] py-6 flex justify-between items-center pr-4 "
+                <li
+                  className="cursor-pointer border-b border-[#B3BAC3] last:border-b-0 py-6 flex justify-between items-center pr-4 "
                   key={event.id}
+                  onClick={eventnavigae}
                 >
                   <div className="flex justify-between items-center">
                     <div className="mr-6 rounded w-[96px] h-[84px]">
@@ -460,31 +485,33 @@ const Main = () => {
                       />
                     </svg>
                   </div>
-                </div>
+                </li>
               ))}
-              <div className="flex justify-center mt-12">
+            </ul>
+            <div className="flex justify-center my-16">
+              <Link to="/eventlisting">
                 <Button classname="py-4 px-16 min-w-[200px]">ViewAll</Button>
-              </div>
+              </Link>
             </div>
           </div>
         </Container>
       </div>
       <div className="my-16">
         <Container>
-          <div className="flex flex-col md:flex-row gap-8 my-10">
-            <div className="bg-[#F0F3F7] rounded-[10px] md:w-1/2 flex justify-between flex-col items-center px-5 md:px-10 py-12 pb-[105px] min-h-[350px]">
-              <div className="w-[150px] h-[150px] rounded-[50%] bg-gradient-to-br from-[#307BC9] to-[#3C59A5] flex justify-center items-center p-3">
+          <div className="flex flex-col md:flex-row gap-8 my-20">
+            <div className="bg-[#F0F3F7] rounded-[10px] md:w-1/2 flex justify-start flex-col items-center px-5 md:px-10 py-6 min-h-[200px]  md:min-h-[320px]">
+              <div className="mb-4 w-[90px] h-[90px] md:w-[150px] md:h-[150px] rounded-[50%] bg-gradient-to-br from-[#307BC9] to-[#3C59A5] flex justify-center items-center p-3">
                 <img src={Layer_1} alt="" className="mx-auto" />
               </div>
-              <p className="font-bold text-[26px] md:text-[38px]  text-[#292D32] text-center ">
+              <p className="font-bold text-[26px] lg:text-[38px]  text-[#292D32] text-center ">
                 Distribution Enquiry
               </p>
             </div>
-            <div className="bg-[#F0F3F7] rounded-[10px] md:w-1/2 flex justify-between flex-col items-center px-5 md:px-10 py-12 min-h-[350px]">
-              <div className="w-[150px] h-[150px] rounded-[50%] bg-gradient-to-br from-[#327C9B] to-[#86DDD2] flex justify-center items-center p-4">
+            <div className="bg-[#F0F3F7] rounded-[10px] md:w-1/2 flex justify-start flex-col items-center px-5 md:px-10 py-6 min-h-[200px]  md:min-h-[320px]">
+              <div className="mb-4 w-[90px] h-[90px] md:w-[150px] md:h-[150px]  rounded-[50%] bg-gradient-to-br from-[#327C9B] to-[#86DDD2] flex justify-center items-center p-4">
                 <img src={Layer_2} alt="" className="mx-auto" />
               </div>
-              <p className="font-bold text-[26px] md:text-[38px] text-[#292D32] text-center ">
+              <p className="font-bold text-[26px] lg:text-[38px] text-[#292D32] text-center  xl:px-10">
                 Sterilizing & Cleaning Instructions
               </p>
             </div>
