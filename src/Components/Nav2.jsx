@@ -327,11 +327,11 @@ export default Nav2;
 
 const Searchpanel = () => {
   return (
-    <div className="absolute bg-white  top-[49px] left-0 w-full max-h-[460px] overflow-auto searchpanel   border border-t-0 border-[#307BC9] rounded-b-xl">
+    <div className="absolute bg-white  top-[49px] left-0 w-full max-h-[490px] overflow-auto searchpanel   border border-t-0 border-[#307BC9] rounded-b-xl">
       {orderData.map((data) => (
         <div
           key={data.id}
-          className="flex items-center justify-between py-4 px-6 border-b last:border-b-0 border-[#B9B9C4] hover:bg-[#EDF0F6] focus:bg-[#EDF0F6]"
+          className="flex items-center justify-between py-2 px-6 border-b last:border-b-0 border-[#B9B9C4] hover:bg-[#EDF0F6] focus:bg-[#EDF0F6]"
         >
           <figure>
             <img

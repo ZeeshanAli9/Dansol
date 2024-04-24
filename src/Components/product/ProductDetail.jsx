@@ -1,15 +1,11 @@
 import React, { useEffect, useId, useState } from "react";
 import DetProImg from "../../assets/DetProImg.png";
-import fb from "../../assets/fb.svg";
-import linkedin from "../../assets/linkedin.svg";
-import pintest from "../../assets/pintest.svg";
-import print from "../../assets/print.svg";
-import twitter from "../../assets/twitter.svg";
+
 import shopping_cartbtn from "../../assets/shopping_cartbtn.svg";
 import Heartlogo from "../Icon/Heartlogo";
 import Container from "../Container";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { addcart } from "../../store/CounterSlice";
 
@@ -20,8 +16,10 @@ function ProductDetail() {
   const [color, setcolor] = useState("none");
   const [stroke, setStroke] = useState("#292D32");
 
-  const id = useId();
-
+  // const { id } = useParams();
+  //
+  // const PDdetail = id;
+  const ids = useId();
   useEffect(() => {
     if (open) {
       setOpen1(false);
@@ -67,13 +65,13 @@ function ProductDetail() {
         </div>
         <div className="">
           {PDdetail.map((item) => (
-            <div className="flex flex-col lg:flex-row my-4" key={item.id}>
+            <div className="flex flex-col lg:flex-row my-4" key={item.ids}>
               <div className="w-full h-[450px] lg:h-[620px] lg:w-1/2 bg-slate-200 px-5 py-16">
                 <img src={item.Image} alt="" className="mx-auto h-[100%]" />
               </div>
               <div
                 className="w-full lg:w-1/2 lg:px-[67px]  lg:top-0 lg:mt-0 mt-10"
-                key={item.id}
+                key={item.ids}
               >
                 <div className="mb-7">
                   <h2 className="text-2xl md:text-[32px] -tracking-[0.5px] ">
@@ -173,7 +171,7 @@ function ProductDetail() {
                   <div className="text-[14px] mb-2">
                     <span className="text-[#90969F]">Categories: </span>
                     {item.categories.map((itemcate) => (
-                      <span className=" text-[14px]" key={id}>
+                      <span className=" text-[14px]" key={ids}>
                         {itemcate},&nbsp;
                       </span>
                     ))}
@@ -238,7 +236,7 @@ function ProductDetail() {
                     >
                       <ul className="">
                         {item.description.map((detail) => (
-                          <li className="ml-2 text-[14px]" key={id}>
+                          <li className="ml-2 text-[14px]" key={ids}>
                             {detail}
                           </li>
                         ))}
@@ -344,32 +342,5 @@ const PDdetail = [
       "-All of our Instruments are TGA Approved",
     ],
     qty: 1,
-    socialmedia: [
-      {
-        id: 10,
-        Image: fb,
-        href: "#",
-      },
-      {
-        id: 2,
-        Image: linkedin,
-        href: "#",
-      },
-      {
-        id: 3,
-        Image: twitter,
-        href: "#",
-      },
-      {
-        id: 4,
-        Image: pintest,
-        href: "#",
-      },
-      {
-        id: 5,
-        Image: print,
-        href: "#",
-      },
-    ],
   },
 ];

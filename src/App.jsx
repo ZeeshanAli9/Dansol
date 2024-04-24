@@ -25,6 +25,9 @@ import Logout from "./Components/Login/Logout.jsx";
 import Favorite from "./Components/Cart/Favorite.jsx";
 import OrderDetail from "./Components/Cart/OrderDetail.jsx";
 import MyAccount from "./Pages/MyAccount.jsx";
+import WarrantyPolicy from "./Pages/WarrantyPolicy.jsx";
+import PayOnline from "./Pages/PayOnline.jsx";
+import SterilizationInstructions from "./Pages/SterilizationInstructions.jsx";
 
 function App() {
   return (
@@ -43,6 +46,13 @@ function App() {
             <Route path="openaccount" element={<OpenAccount />} />
             <Route path="paymentsuccess" element={<PaymentSuccess />} />
             <Route path="orderdetail" element={<OrderDetail />} />
+            <Route path="blogs" element={<Blogs />} />
+            <Route path="pay-online" element={<PayOnline />} />
+            <Route path="warranty-policy" element={<WarrantyPolicy />} />
+            <Route
+              path="sterilization-instruction"
+              element={<SterilizationInstructions />}
+            />
             <Route path="*" element={<PageNotFound />} />
           </Route>
           <Route path="/my-account" element={<MyAccount />}>
@@ -58,7 +68,6 @@ function App() {
           <Route path="/forgetpassword" element={<ForgetPassword />} />
           <Route path="/otp" element={<OTP />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
-          <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </BrowserRouter>
     </>

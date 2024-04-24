@@ -82,7 +82,7 @@ const Main = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
               <Link to="/requestcatelog">
                 <div className="bg-[#DBE1EA] rounded-lg py-2 pl-4 pr-4 md:pr-12 lg:pr-2 xl:pr-12 min-h-[84px] md:min-h-[115px] xl:min-h-[130px] flex items-center">
-                  <div className=" flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px]">
+                  <div className=" flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px] xl:min-w-[85px]">
                     <img
                       src={bannerbottom4}
                       alt=""
@@ -98,7 +98,7 @@ const Main = () => {
                 className="bg-[#3D8BDC] rounded-lg py-2 pl-4 pr-4 md:pr-12 lg:pr-2 xl:pr-12 min-h-[84px] md:min-h-[115px] xl:min-h-[130px] flex items-center cursor-pointer"
                 onClick={handleDownloadPopup}
               >
-                <div className="flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px]">
+                <div className="flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px] xl:min-w-[85px]">
                   <img
                     src={bannerbottom1}
                     alt=""
@@ -111,7 +111,7 @@ const Main = () => {
               </div>
               <Link to="/openaccount">
                 <div className="bg-[#DBE1EA] rounded-lg py-2 pl-4 pr-4 md:pr-12 lg:pr-2 xl:pr-12 min-h-[84px] md:min-h-[115px] xl:min-h-[130px] flex items-center">
-                  <div className=" flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px]">
+                  <div className=" flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px] xl:min-w-[85px]">
                     <img
                       src={bannerbottom2}
                       alt=""
@@ -124,7 +124,7 @@ const Main = () => {
                 </div>
               </Link>
               <div className="bg-[#55BE92] rounded-lg py-2 pl-4 pr-4 md:pr-12 lg:pr-2 xl:pr-12 min-h-[84px] md:min-h-[115px] xl:min-h-[130px] flex items-center">
-                <div className="flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px]">
+                <div className="flex items-center mr-[15px] md:mr-[27px] max-w-[60px] md:max-w-[90px] xl:min-w-[85px]">
                   <img
                     src={bannerbottom3}
                     alt=""

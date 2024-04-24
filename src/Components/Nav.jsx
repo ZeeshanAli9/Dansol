@@ -196,7 +196,7 @@ function Nav() {
         </Container>
       </div>
       <div
-        className={`block md:hidden absolute bg-white z-[100]  top-0 h-full w-full  px-6 py-5 ${
+        className={`block md:hidden fixed bg-white z-[100]  top-0 h-full w-full  px-6 py-5 ${
           !open
             ? "-left-[100%] transition-all duration-500 ease-linear "
             : "left-0 transition-all duration-500 ease-linear "
@@ -415,9 +415,16 @@ function Nav() {
                     <div
                       className={`${
                         heading === link.name
-                          ? " h-[55vh] overflow-auto transition-all duration-500 ease-linear"
-                          : " h-[0vh] overflow-auto transition-all duration-500 ease-linear"
+                          ? " overflow-auto transition-all duration-500 ease-linear"
+                          : "  overflow-auto transition-all duration-500 ease-linear"
                       }`}
+                      style={{
+                        maxHeight: `${
+                          heading === link.name
+                            ? " calc(100vh - 305px)"
+                            : "0px "
+                        }`,
+                      }}
                     >
                       <div className="pt-1">
                         <div>
@@ -507,7 +514,7 @@ const Searchpanel = () => {
     <div className="absolute bg-white  top-[135px] left-0 w-full  z-[1000]   pb-4 rounded-b-xl h-full">
       <div
         className="overflow-auto searchpanel"
-        style={{ maxHeight: `calc(100vh - 300px)` }}
+        style={{ maxHeight: `calc(100vh - 140px)` }}
       >
         {orderData.map((data) => (
           <div
